@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anandhu // Cybersecurity Portfolio</title>
+<style>
+:root{--bg:#02020a;--panel:#080816;--text:#eafcff;--mute:#8c92b8;--cy:#00ffd5;--vi:#8a2bff;--pk:#ff2e88;--line:rgba(0,255,213,.2);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#02020a}}
+:root[data-theme="dark"]{--bg:#02020a}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+#rain{position:fixed;inset:0;width:100%;height:100%;z-index:0;opacity:.35}
+body::before{content:"";position:fixed;inset:0;z-index:0;background:radial-gradient(circle at 15% 10%,rgba(138,43,255,.28),transparent 45%),radial-gradient(circle at 90% 85%,rgba(255,46,136,.2),transparent 45%),radial-gradient(circle at 50% 50%,transparent 40%,#000 100%);pointer-events:none}
+body::after{content:"";position:fixed;left:0;right:0;height:140px;top:-140px;z-index:2;background:linear-gradient(transparent,rgba(0,255,213,.12),transparent);animation:scan 5s linear infinite;pointer-events:none}
+@keyframes scan{to{top:100%}}
+#glow{position:fixed;width:360px;height:360px;margin:-180px 0 0 -180px;border-radius:50%;background:radial-gradient(circle,rgba(0,255,213,.18),transparent 65%);z-index:1;pointer-events:none;left:-400px;top:-400px}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;z-index:50;background:linear-gradient(90deg,var(--cy),var(--vi),var(--pk));box-shadow:0 0 12px var(--cy)}
+main{position:relative;z-index:3;max-width:1040px;margin:0 auto;padding:0 20px 60px}
+nav{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;padding:20px 0;font-family:Consolas,monospace;font-size:13px;letter-spacing:3px}
+nav a{color:var(--cy);text-decoration:none;opacity:.75;transition:.2s}nav a:hover{opacity:1;text-shadow:0 0 12px var(--cy);letter-spacing:5px}
+.hero{min-height:78vh;display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:center}
+@media(max-width:760px){.hero{grid-template-columns:1fr}}
+.tag{font-family:Consolas,monospace;color:var(--pk);letter-spacing:3px;font-size:13px;animation:fl 2.4s infinite}
+@keyframes fl{0%,100%{opacity:1}50%{opacity:.45}}
+h1{font-size:clamp(44px,11vw,100px);line-height:1;margin:10px 0;letter-spacing:2px;position:relative;background:linear-gradient(90deg,var(--cy),var(--vi),var(--pk),var(--cy));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 4s linear infinite}
+@keyframes flow{to{background-position:300% 0}}
+h1::before,h1::after{content:attr(data-t);position:absolute;left:0;top:0;width:100%;overflow:hidden;-webkit-text-fill-color:currentColor}
+h1::before{color:var(--pk);clip-path:inset(0 0 55% 0);animation:g1 2.2s infinite steps(1)}
+h1::after{color:var(--cy);clip-path:inset(55% 0 0 0);animation:g2 2.2s infinite steps(1)}
+@keyframes g1{0%,88%,100%{transform:translate(0);opacity:0}90%{transform:translate(-8px,2px);opacity:1}94%{transform:translate(6px,-2px);opacity:1}}
+@keyframes g2{0%,82%,100%{transform:translate(0);opacity:0}84%{transform:translate(8px,-2px);opacity:1}88%{transform:translate(-6px,2px);opacity:1}}
+.sub{font-family:Consolas,monospace;color:var(--cy);font-size:clamp(14px,3vw,20px);min-height:30px}
+.sub::after{content:"▮";animation:b .8s infinite}@keyframes b{50%{opacity:0}}
+.btns{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:12px 26px;border:1px solid var(--cy);color:var(--cy);text-decoration:none;font-family:Consolas,monospace;letter-spacing:2px;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);transition:.2s;position:relative;overflow:hidden}
+.btn:hover{background:var(--cy);color:#000;box-shadow:0 0 30px var(--cy);transform:scale(1.06)}
+.btn.m{border-color:var(--pk);color:var(--pk)}.btn.m:hover{background:var(--pk);box-shadow:0 0 30px var(--pk);color:#000}
+.radar{width:100%;max-width:360px;margin:auto;filter:drop-shadow(0 0 18px rgba(0,255,213,.5))}
+.sweep{transform-origin:150px 150px;animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.blip{animation:ping 3s infinite}
+@keyframes ping{0%{opacity:0;r:2}10%{opacity:1;r:5}60%{opacity:0;r:12}100%{opacity:0}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:10px}
+.stat{text-align:center;padding:18px;border:1px solid var(--line);background:rgba(8,8,22,.7)}
+.stat b{display:block;font-size:38px;color:var(--cy);text-shadow:0 0 16px var(--cy);font-family:Consolas,monospace}
+.stat span{font-size:12px;letter-spacing:2px;color:var(--mute)}
+.tick{overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);margin:40px -20px 0;padding:10px 0;font-family:Consolas,monospace;color:var(--vi);background:rgba(138,43,255,.06)}
+.tick div{display:inline-block;animation:mq 22s linear infinite;padding-left:100%}
+@keyframes mq{to{transform:translateX(-100%)}}
+section{padding:60px 0 10px}
+h2{font-family:Consolas,monospace;font-size:14px;letter-spacing:5px;color:var(--pk);margin:0 0 22px}
+h2::before{content:"// ";color:var(--cy)}
+p{color:var(--mute);max-width:720px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+.card{background:linear-gradient(160deg,rgba(12,10,30,.95),rgba(8,8,22,.75));border:1px solid var(--line);padding:22px;position:relative;transition:transform .15s,box-shadow .25s,border-color .25s;transform-style:preserve-3d}
+.card::before{content:"";position:absolute;top:-1px;left:-1px;width:26px;height:26px;border-top:2px solid var(--cy);border-left:2px solid var(--cy)}
+.card::after{content:"";position:absolute;bottom:-1px;right:-1px;width:26px;height:26px;border-bottom:2px solid var(--pk);border-right:2px solid var(--pk)}
+.card:hover{box-shadow:0 0 34px rgba(138,43,255,.45);border-color:var(--vi)}
+.card h3{margin:0 0 4px}
+.st{font-family:Consolas,monospace;font-size:11px;letter-spacing:2px;color:var(--pk)}
+.st.live{color:var(--cy);animation:fl 1.2s infinite}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{font-family:Consolas,monospace;font-size:12px;padding:4px 10px;border:1px solid var(--line);color:var(--cy);background:rgba(0,255,213,.05);transition:.2s}
+.chip:hover{background:var(--cy);color:#000;transform:translateY(-3px);box-shadow:0 0 14px var(--cy)}
+.chip.m{color:var(--pk);border-color:rgba(255,46,136,.45);background:rgba(255,46,136,.06)}.chip.m:hover{background:var(--pk);box-shadow:0 0 14px var(--pk);color:#000}
+.term{margin-top:14px;background:#000;border:1px solid var(--line);padding:10px;height:150px;overflow:hidden;font-family:Consolas,monospace;font-size:11.5px;display:flex;flex-direction:column;justify-content:flex-end}
+.term div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:in .3s}
+@keyframes in{from{opacity:0;transform:translateX(-12px)}}
+.w{color:#ffd23f}.c{color:var(--pk)}.i{color:var(--cy)}
+.quote{border-left:3px solid var(--pk);padding:8px 18px;color:var(--text);font-size:18px;max-width:720px}
+.rv{opacity:0;transform:translateY(40px) scale(.97);transition:.7s cubic-bezier(.2,.8,.2,1)}
+.rv.on{opacity:1;transform:none}
+footer{text-align:center;font-family:Consolas,monospace;color:var(--mute);font-size:12px;padding:40px 0 10px;letter-spacing:2px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="rain"></canvas><div id="glow"></div><div id="bar"></div>
+<main>
+<nav><a href="#about">ABOUT</a><a href="#projects">PROJECTS</a><a href="#skills">SKILLS</a><a href="#contact">CONTACT</a></nav>
+
+<header class="hero">
+<div>
+<div class="tag">&gt; SYSTEM ONLINE // CSE STUDENT</div>
+<h1 data-t="ANANDHU">ANANDHU</h1>
+<div class="sub" id="typed"></div>
+<div class="btns"><a class="btn" href="#projects">VIEW PROJECTS</a><a class="btn m" href="#contact">CONNECT</a></div>
+</div>
+<svg class="radar" viewBox="0 0 300 300" aria-hidden="true">
+<defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00ffd5" stop-opacity="0"/><stop offset="1" stop-color="#00ffd5" stop-opacity=".7"/></linearGradient></defs>
+<g fill="none" stroke="#00ffd5" stroke-opacity=".4"><circle cx="150" cy="150" r="140"/><circle cx="150" cy="150" r="95"/><circle cx="150" cy="150" r="50"/><path d="M10 150H290M150 10V290"/></g>
+<g class="sweep"><path d="M150 150 L290 150 A140 140 0 0 0 250 51 Z" fill="url(#sg)"/></g>
+<g fill="#ff2e88"><circle class="blip" cx="220" cy="100" r="4"/><circle class="blip" style="animation-delay:.8s" cx="90" cy="210" r="4"/><circle class="blip" style="animation-delay:1.6s" cx="200" cy="230" r="4"/><circle class="blip" style="animation-delay:2.2s" cx="70" cy="90" r="4"/></g>
+</svg>
+</header>
+
+<div class="stats rv">
+<div class="stat"><b data-n="8">0</b><span>SECURITY TOOLS</span></div>
+<div class="stat"><b data-n="3">0</b><span>BUILT PROJECTS</span></div>
+<div class="stat"><b data-n="7">0</b><span>LANGUAGES &amp; STACK</span></div>
+<div class="stat"><b data-n="100" data-s="%">0</b><span>CURIOSITY</span></div>
+</div>
+
+<div class="tick"><div>NMAP ◆ BURP SUITE ◆ METASPLOIT ◆ KALI LINUX ◆ GOBUSTER ◆ SUBFINDER ◆ SHERLOCK ◆ OPENVAS ◆ PYTHON ◆ FLASK ◆ SQLITE ◆ ARDUINO ◆ RASPBERRY PI PICO ◆ MITRE ATT&amp;CK ◆ </div></div>
+
+<section id="about" class="rv">
+<h2>ABOUT</h2>
+<p>Computer Science and Engineering student driven by cybersecurity, hardware experimentation, software development and gaming. I like understanding how computers, networks, operating systems and electronics really work: building, breaking things in controlled environments, troubleshooting and improving.</p>
+<p>Gaming sharpened my strategic thinking, quick decisions and situational awareness. The same instincts carry into security work.</p>
+<div class="quote">I don't want to learn tech only from textbooks. I want to build it, test it and find its weaknesses.</div>
+</section>
+
+<section id="projects">
+<h2 class="rv">PROJECTS</h2>
+<div class="grid">
+<div class="card rv">
+<div class="st live">● IN DEVELOPMENT // FINAL YEAR</div>
+<h3>CyberShield</h3>
+<p>An intelligent SOC simulator for real-time threat monitoring and analysis across Windows and Linux environments.</p>
+<div class="chips"><span class="chip">Centralized monitoring</span><span class="chip">Traffic analysis</span><span class="chip">Brute-force detection</span><span class="chip">Port-scan detection</span><span class="chip">Threat intel</span><span class="chip m">MITRE ATT&amp;CK</span><span class="chip m">Incident alerts</span></div>
+<div class="term" id="term" aria-label="Simulated alert feed"></div>
+</div>
+<div class="card rv">
+<div class="st">■ COMPLETED</div>
+<h3>Web Honeypot</h3>
+<p>Real-time alerting for credential attack awareness. Captures suspicious logins with IP, browser info, timestamp and attempted credentials, then pings Telegram instantly.</p>
+<div class="chips"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">SQLite</span><span class="chip m">Telegram Bot API</span></div>
+</div>
+<div class="card rv">
+<div class="st">■ HARDWARE LAB</div>
+<h3>Microcontroller Experiments</h3>
+<p>Hands-on work with Arduino and Raspberry Pi Pico, including a USB Mouse Ducky, to learn how hardware-level input devices behave.</p>
+<div class="chips"><span class="chip">Arduino</span><span class="chip">Raspberry Pi Pico</span></div>
+</div>
+<div class="card rv">
+<div class="st">■ SIDE QUEST</div>
+<h3>Small Game</h3>
+<p>An experiment in game development, blending logic, design and problem-solving.</p>
+<div class="chips"><span class="chip">Game dev</span></div>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<h2 class="rv">SKILLS</h2>
+<div class="grid">
+<div class="card rv"><h3>Security</h3><div class="chips"><span class="chip m">Ethical hacking</span><span class="chip m">Pen testing</span><span class="chip m">Vuln assessment</span><span class="chip m">Network security</span><span class="chip m">Digital forensics</span><span class="chip m">SecOps</span></div></div>
+<div class="card rv"><h3>Tools</h3><div class="chips"><span class="chip">Kali Linux</span><span class="chip">Nmap</span><span class="chip">Burp Suite</span><span class="chip">Metasploit</span><span class="chip">Gobuster</span><span class="chip">Subfinder</span><span class="chip">Sherlock</span><span class="chip">OpenVAS</span></div></div>
+<div class="card rv"><h3>Development</h3><div class="chips"><span class="chip">Python</span><span class="chip">Java</span><span class="chip">PHP</span><span class="chip">Flask</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">SQLite</span></div></div>
+<div class="card rv"><h3>Systems &amp; Hardware</h3><div class="chips"><span class="chip">Windows</span><span class="chip">Linux</span><span class="chip">Networking</span><span class="chip">PC building</span><span class="chip">RAM/GPU/CPU tuning</span><span class="chip">Troubleshooting</span></div></div>
+</div>
+</section>
+
+<section id="contact" class="rv">
+<h2>CONTACT</h2>
+<p>Open to internships, security projects and collaborations.</p>
+<div class="btns"><a class="btn" href="mailto:you@example.com">EMAIL</a><a class="btn m" href="#">GITHUB</a><a class="btn" href="#">LINKEDIN</a></div>
+</section>
+
+<footer>© 2026 ANANDHU // STAY CURIOUS. STAY SECURE.</footer>
+</main>
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+// typing
+var t=$("#typed"),w=["Cybersecurity Enthusiast","Aspiring SOC Analyst","Ethical Hacker in Training","Builder of Things"],i=0,j=0,d=false;
+(function s(){var x=w[i];t.textContent="> "+x.slice(0,j);
+if(!d&&j<x.length){j++;setTimeout(s,60)}else if(!d){d=true;setTimeout(s,1300)}else if(j>0){j--;setTimeout(s,30)}else{d=false;i=(i+1)%w.length;setTimeout(s,250)}})();
+// matrix rain
+var c=$("#rain"),x=c.getContext("2d"),cols,drops,fs=16,ch="01ABCDEF<>/{}#$%&*ΣΩ";
+function rs(){c.width=innerWidth;c.height=innerHeight;cols=Math.ceil(c.width/fs);drops=[];for(var k=0;k<cols;k++)drops[k]=Math.random()*-50}
+rs();addEventListener("resize",rs);
+setInterval(function(){x.fillStyle="rgba(2,2,10,.12)";x.fillRect(0,0,c.width,c.height);x.font=fs+"px monospace";
+for(var k=0;k<cols;k++){x.fillStyle=Math.random()>.97?"#ff2e88":"#00ffd5";x.fillText(ch[Math.floor(Math.random()*ch.length)],k*fs,drops[k]*fs);
+if(drops[k]*fs>c.height&&Math.random()>.975)drops[k]=0;drops[k]++}},45);
+// cursor glow
+var g=$("#glow");addEventListener("pointermove",function(e){g.style.left=e.clientX+"px";g.style.top=e.clientY+"px"});
+// scroll bar
+addEventListener("scroll",function(){var h=document.documentElement;$("#bar").style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%"});
+// reveal + counters
+function count(el){var n=+el.dataset.n,s=el.dataset.s||"",v=0,st=Math.max(1,n/40);var iv=setInterval(function(){v+=st;if(v>=n){v=n;clearInterval(iv)}el.textContent=Math.floor(v)+s},35)}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");e.target.querySelectorAll("[data-n]").forEach(count);io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll(".rv").forEach(function(e,k){e.style.transitionDelay=(k%3)*90+"ms";io.observe(e)});
+// card tilt
+document.querySelectorAll(".card").forEach(function(cd){cd.addEventListener("pointermove",function(e){var r=cd.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;cd.style.transform="perspective(700px) rotateY("+px*10+"deg) rotateX("+(-py*10)+"deg)"});cd.addEventListener("pointerleave",function(){cd.style.transform=""})});
+// simulated SOC feed
+var term=$("#term"),ev=[["w","BRUTE-FORCE","SSH login failures x37"],["c","PORT-SCAN","sequential SYN probes detected"],["i","INFO","agent heartbeat OK"],["w","T1110","MITRE: Credential Access"],["c","ALERT","incident #"],["i","INFO","threat-intel feed synced"],["w","T1046","MITRE: Network Service Discovery"]];
+function ip(){return "10."+(Math.random()*255|0)+"."+(Math.random()*255|0)+"."+(Math.random()*255|0)}
+setInterval(function(){var e=ev[Math.random()*ev.length|0],d=document.createElement("div"),tm=new Date().toTimeString().slice(0,8);
+d.innerHTML='<span style="color:#555">'+tm+'</span> <span class="'+e[0]+'">['+e[1]+']</span> '+ip()+' '+e[2]+(e[1]=="ALERT"?(Math.random()*900+100|0):"");
+term.appendChild(d);while(term.children.length>9)term.removeChild(term.firstChild)},750);
+})();
+</script>
+</body>
+</html>
